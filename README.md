@@ -17,7 +17,8 @@ Repositorio para compartilhar a imagem para a disciplina de Arquitetura de Siste
 
 1. Abra o terminal (PowerShell ou CMD) no Windows.
 2. Navegue até a pasta onde você tem o `Dockerfile` e o `docker-compose.yml`.
-3. Execute o seguinte comando para construir a imagem: `docker-compose build`
+3. Altere o nome da pasta para o mirror com o container em `docker-compose.yml`
+4. Execute o seguinte comando para construir a imagem: `docker-compose build`
 
 Isso construirá a imagem com o nome `ubuntu-aso`.
 
@@ -27,7 +28,9 @@ Isso construirá a imagem com o nome `ubuntu-aso`.
 > O argumento `-d` significa "detached", o que significa que o container será executado em segundo plano.
 2. Para saber o nome da sua imagem (não é exatamente o `ubuntu-aso`) execute o comando: `docker-compose ps`
 > Copie o NAME do container
+![image](https://github.com/CodeWracker/ASO-Docker-Image/assets/42501669/17d0ec85-bff7-4705-b4f7-cd4a3526c33f)
 3. Para acessar o bash do container em execução: `docker exec -it <NAME> /bin/bash`
+![image](https://github.com/CodeWracker/ASO-Docker-Image/assets/42501669/4440bd49-0dfe-4f22-868d-cf48b50aa9d3)
 > Isso abrirá uma sessão bash interativa dentro do container, onde você pode executar comandos diretamente no ambiente Ubuntu.
 4. Para sair da sessão bash do container, digite: `exit`
 
