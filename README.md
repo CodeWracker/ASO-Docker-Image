@@ -34,8 +34,8 @@ Isso construirá a imagem com o nome `ubuntu-aso`.
 > ![image](https://github.com/CodeWracker/ASO-Docker-Image/assets/42501669/17d0ec85-bff7-4705-b4f7-cd4a3526c33f)
 
 3. Para acessar o bash do container em execução: `docker exec -it <NAME> /bin/bash`
-   ![image](https://github.com/CodeWracker/ASO-Docker-Image/assets/42501669/4440bd49-0dfe-4f22-868d-cf48b50aa9d3)
 
+> ![image](https://github.com/CodeWracker/ASO-Docker-Image/assets/42501669/4440bd49-0dfe-4f22-868d-cf48b50aa9d3)
 > Isso abrirá uma sessão bash interativa dentro do container, onde você pode executar comandos diretamente no ambiente Ubuntu.
 
 4. Para sair da sessão bash do container, digite: `exit`
