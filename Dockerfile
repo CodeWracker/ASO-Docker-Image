@@ -18,10 +18,33 @@ RUN apt install libgtest-dev -y
 RUN cd /usr/src/gtest && cmake CMakeLists.txt && make 
 
 # Cria um alias permanente para compilar os programas
-# compileaso -> g++ -std=c++17 *.cpp -o out -lgtest -lcrypto -lpthread
-RUN echo "alias compileaso='g++ -std=c++17 *.cpp -o out -lgtest -lcrypto -lpthread'" >> ~/.bashrc
-RUN echo "alias compileaso-debug='g++ -std=c++17 *.cpp -o out -lgtest -lcrypto -lpthread -g'" >> ~/.bashrc
+RUN echo "alias compileaso='shopt -s nullglob; cpp_files=(*.cpp); c_files=(*.c); cmd=\"g++ -std=c++17\"; [[ \${#cpp_files[@]} -ne 0 ]] && cmd=\"\$cmd \${cpp_files[*]}\"; [[ \${#c_files[@]} -ne 0 ]] && cmd=\"\$cmd \${c_files[*]}\"; \$cmd -o out -lgtest -lcrypto -lpthread; shopt -u nullglob'" >> ~/.bashrc
+RUN echo "alias compileaso-debug='shopt -s nullglob; cpp_files=(*.cpp); c_files=(*.c); cmd=\"g++ -std=c++17\"; [[ \${#cpp_files[@]} -ne 0 ]] && cmd=\"\$cmd \${cpp_files[*]}\"; [[ \${#c_files[@]} -ne 0 ]] && cmd=\"\$cmd \${c_files[*]}\"; \$cmd -o out -lgtest -lcrypto -lpthread -g; shopt -u nullglob'" >> ~/.bashrc
+# --------------------------------------------------------------
+# Alias: compileaso e compileaso-debug
+# 
+# Estes aliases são usados para compilar arquivos C e C++ no diretório atual.
+# Eles verificam a presença de arquivos .cpp e .c e, em seguida, constroem um comando g++ apropriado.
+# 
+# - `shopt -s nullglob`: Garante que, se não houver correspondência para os padrões *.cpp ou *.c, 
+#   eles se expandam para uma lista vazia em vez de si mesmos.
+# 
+# - `cpp_files=(*.cpp)`: Cria um array com todos os arquivos .cpp no diretório atual.
+# 
+# - `c_files=(*.c)`: Cria um array com todos os arquivos .c no diretório atual.
+# 
+# - O comando g++ é construído dinamicamente com base na presença de arquivos .cpp e .c.
+# 
+# - `-lgtest -lcrypto -lpthread`: São flags para linkar as bibliotecas gtest, crypto e pthread.
+# 
+# - A diferença entre os aliases é a flag `-g` no `compileaso-debug`, que é usada para compilação com informações de depuração.
+# 
+# - `shopt -u nullglob`: Desativa a opção nullglob após a compilação.
+# --------------------------------------------------------------
 
+
+# alias cls para clear
+RUN echo "alias cls='clear'" >> ~/.bashrc
 
 # Definir o diretório de trabalho
 WORKDIR /workspace
