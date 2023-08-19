@@ -1,0 +1,12 @@
+version: "3"
+
+services:
+  ubuntu-aso:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: ubuntu-aso:latest
+    volumes:
+      - E:\Projetos\UFSC\Arquitetura-de-Sistemas-Operacionais:/workspace #altere aqui a pasta que vc quer compartilhar
+    stdin_open: true
+    tty: true
