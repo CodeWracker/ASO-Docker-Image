@@ -7,6 +7,6 @@ services:
       dockerfile: Dockerfile
     image: ubuntu-aso:latest
     volumes:
-      - C:<SUA_PASTA>:/workspace #altere aqui a pasta que vc quer compartilhar (não necessariamente precisa ser no C:)
+      - E:\Projetos\UFSC\Arquitetura-de-Sistemas-Operacionais:/workspace #altere aqui a pasta que vc quer compartilhar (não necessariamente precisa ser no C:)
     stdin_open: true
     tty: true

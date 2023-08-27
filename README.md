@@ -15,14 +15,26 @@ Repositório para compartilhar a imagem para a disciplina de Arquitetura de Sist
 
 ## 2. Construir a Imagem Docker
 
-1. Abra o terminal (PowerShell ou CMD) no Windows.
-2. Navegue até a pasta onde você tem o `Dockerfile` e o `docker-compose.yml`.
-3. Altere o nome da pasta para o mirror com o container em `docker-compose.yml`
-4. Execute o seguinte comando para construir a imagem: `docker-compose build`
+- Abra o terminal (PowerShell ou CMD) no Windows.
+- Navegue até a pasta onde você tem o `Dockerfile` e o `docker-compose.yml`.
+
+### caso queira usar o script (WINDOWS ONLY)
+
+- Execute o comando: `./setup.bat`
+
+### caso queira fazer na mão (LINUX)
+
+- Altere o nome da pasta para o mirror com o container em `docker-compose.yml` 4. Execute o seguinte comando para construir a imagem: `docker-compose build`
 
 Isso construirá a imagem com o nome `ubuntu-aso`.
 
 ## 3. Executar e Acessar o Container
+
+### 3.1. Usando os Scripts (WINDOWS ONLY)
+
+1. Execute o comando: `./up.bat`
+
+### 3.2. Usando os comandos na raça (LINUX)
 
 1. Para iniciar um container a partir da imagem que você construiu, use: `docker-compose up -d`
 
